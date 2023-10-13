@@ -264,8 +264,10 @@
 
 
 
-    // Apply custom CSS
-    GM_addStyle(customCSS);
+// Create a style element and append it to the document
+    const styleElement = document.createElement('style');
+    styleElement.textContent = customCSS;
+    document.head.appendChild(styleElement);
 
 // Function to smoothly change the --rainbow color variable
 function smoothlyChangeRainbowColor() {
