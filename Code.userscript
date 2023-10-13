@@ -1,4 +1,14 @@
-(function loadThemes() {
+// ==UserScript==
+// @name         Bobeavus Canvas
+// @namespace    http://your.namespace.here
+// @version      1.0
+// @description  change canvas's ugly layout to any colors you want
+// @author       Bobeavus
+// @match        https://isd271.instructure.com/*
+// @grant        GM_addStyle
+// ==/UserScript==
+
+(function() {
     'use strict';
 
     // Define your custom CSS styles here
