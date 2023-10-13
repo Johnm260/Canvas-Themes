@@ -1,4 +1,4 @@
-(function() {
+(function loadThemes() {
     'use strict';
 
     // Define your custom CSS styles here
