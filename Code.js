@@ -1,6 +1,20 @@
 (function() {
     'use strict';
 
+
+    // Check if the "ThemeAuthKey" cookie is set to the desired value
+    function isAuthorized() {
+        const themeAuthCookie = document.cookie.split('; ')
+            .find(cookie => cookie.startsWith('ThemeAuthKey=BobeavusOnTop'));
+        return themeAuthCookie && themeAuthCookie.includes('desired_value');
+    }
+
+    if (!isAuthorized()) {
+        // Do not run the script if authorization fails
+        return;
+    }
+
+    
     // Define your custom CSS styles here
     const customCSS = `
 /* ONLY CHANGE THE HEX CODRS OF THESE COLORS, DONT CHANGE ANYTHING ELSE*/
