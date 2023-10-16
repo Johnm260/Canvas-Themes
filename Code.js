@@ -324,6 +324,53 @@ function getCurrentCSSVariables() {
   };
 }
 
+// Function to check if the "NewUser" cookie is set to 1
+function isNewUser() {
+  return document.cookie.indexOf('NewUser=1') === -1;
+}
+
+
+
+// Create a draggable welcome popup
+function createWelcomePopup() {
+    const welcomePopup = document.createElement('div');
+    welcomePopup.id = 'welcomePopup';
+    welcomePopup.style.cssText = 'position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: var(--primary-color); color: #333; padding: 10px; border: 1px solid #ccc; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); cursor: move; z-index: 9999; display: block;';
+    welcomePopup.innerHTML = `
+      <div id="titleBar" style="background-color: var(--primary-color); color: var(--text-color);" padding: 5px; cursor: move; border-bottom: 1px solid #ccc; display: flex; justify-content: space-between; align-items: center;">
+        <span style="font-size: 16px; padding: 2px;">Bobeavus Welcome</span>
+        <br/>
+        <span id="closeButtonWelcome" style="cursor: pointer; font-size: 16px; padding: 2px; background-color: var(--primary-color); color: var(--text-color);">Press this to close.</span>
+      </div>
+      <div style="padding: 0px; background-color: var(--primary-color); color: var(--text-color);">
+        <p>You must be new, welcome to the Bobeavus Canvas Themes! To get started, just press Alt+C.</p>
+        <p>There are premade themes that you can pick from, but putting valid hex codes in the</p>
+        <p>text boxes, and press "Apply"! Have fun and enjoy the new look.</p>
+      </div>
+    `;
+
+// Function to close the welcome popup and set the "NewUser" cookie
+  function closeWelcomePopup() {
+    welcomePopup.style.display = 'none';
+    document.cookie = 'NewUser=1; expires=Sat, 31 Dec 2030 12:00:00 UTC; path=/'; // Set "NewUser" cookie to 1
+  }
+
+  // Event listener for the close button
+  welcomePopup.querySelector('#closeButtonWelcome').addEventListener('click', closeWelcomePopup);
+
+
+  // Append the welcome popup to the document body
+  document.body.appendChild(welcomePopup);
+}
+
+// Check if the user is a new user (hasn't set "NewUser" cookie)
+if (isNewUser()) {
+  // Create the welcome popup for new users
+  createWelcomePopup();
+}
+
+
+    
 // Create a draggable popup box
 const popupDiv = document.createElement('div');
 popupDiv.id = 'colorPopup';
