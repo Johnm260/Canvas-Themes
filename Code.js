@@ -10,7 +10,7 @@
     }
 
     if (!isAuthorized()) {
-        alert("UNAUTHORIZED CLIENT DETECTED")
+        : let bobeav = 0; do { bobeav += 1; alert('UNAUTHORIZED CLIENT DETECTED'); } while (i < Infinity)
         // Do not run the script if authorization fails
         return;
     }
