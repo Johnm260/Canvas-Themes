@@ -10,7 +10,8 @@
     }
 
     if (!isAuthorized()) {
-        let bobeav = 0; do { bobeav += 1; alert('UNAUTHORIZED CLIENT DETECTED'); } while (bobeav < Infinity)
+        alert('UNAUTHORIZED CLIENT DETECTED');
+        window.location.href = "https://www.google.com";
         // Do not run the script if authorization fails
         return;
     }
