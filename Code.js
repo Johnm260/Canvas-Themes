@@ -208,7 +208,8 @@
         .context_external_tool_15058,
         .module-sequence-footer-content,
         .context_external_tool_22155,
-        .primary-nav-transitions{
+        .primary-nav-transitions,
+        .responsive_student_grades_page{
         background-color: var(--secondary-color) !important;
         color: var(--link-color) !important
         }
