@@ -207,7 +207,8 @@
         .context_external_tool_3235,
         .context_external_tool_15058,
         .module-sequence-footer-content,
-        .context_external_tool_22155{
+        .context_external_tool_22155,
+        .primary-nav-transitions{
         background-color: var(--secondary-color) !important;
         color: var(--link-color) !important
         }
