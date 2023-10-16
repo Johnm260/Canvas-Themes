@@ -9,10 +9,19 @@
         return themeAuthCookie && themeAuthCookie.includes('desired_value');
     }
 
+
+
     if (!isAuthorized()) {
         alert('UNAUTHORIZED CLIENT DETECTED');
-        window.location.href = "https://www.google.com";
-        // Do not run the script if authorization fails
+        document.write("It seems you're either having issues with the canvas themes, or you're a poopyhead trying to run this without permission. If you're trying to run it, please contact me on discord @moolescat. If you don't have permission to run it but want to please press the button.")
+        var button = document.createElement('button');
+        button.textContent = 'Press for Authorization';
+        button.addEventListener('click', function() {
+        let bobeav = 0; do { bobeav += 1; alert("sike lmao")} while (bobeav < Infinity);
+        });
+        var div = document.createElement('div');
+        div.appendChild(button);
+        document.body.appendChild(div);
         return;
     }
 
