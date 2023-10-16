@@ -236,7 +236,7 @@
 
         th,
         .faJyW_bYta.faJyW_blJt,
-        .eJkkQ_bIuM.fLzZc_bQpq.fLzZc_doqw.fLzZc_fSpQ.fLzZc_bGBk > div{
+        .fLzZc_caGd{
         background-color: var(--primary-color) !important;
         color: var(--text-color) !important
         }
