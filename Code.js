@@ -10,7 +10,7 @@
     }
 
     if (!isAuthorized()) {
-        Alert("UNAUTHORIZED CLIENT DETECTED")
+        alert("UNAUTHORIZED CLIENT DETECTED")
         // Do not run the script if authorization fails
         return;
     }
