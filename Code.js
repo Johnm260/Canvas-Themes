@@ -339,7 +339,7 @@ function createWelcomePopup() {
     welcomePopup.style.cssText = 'position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: var(--primary-color); color: #333; padding: 10px; border: 1px solid #ccc; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); cursor: move; z-index: 9999; display: block;';
     welcomePopup.innerHTML = `
       <div id="titleBar" style="background-color: var(--primary-color); color: var(--text-color);" padding: 5px; cursor: move; border-bottom: 1px solid #ccc; display: flex; justify-content: space-between; align-items: center;">
-        <span style="font-size: 16px; padding: 2px;">Bobeavus Welcome</span>
+        <span style="font-size: 16px; padding: 2px;">Welcome to the Bobeavus Console</span>
         <br/>
         <span id="closeButtonWelcome" style="cursor: pointer; font-size: 16px; padding: 2px; background-color: var(--primary-color); color: var(--text-color);">Press this to close.</span>
       </div>
