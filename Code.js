@@ -105,7 +105,8 @@
         .CompletedItemsFacade-styles__contentPrimary,
         .Grouping-styles__title,
         .css-13b78my-view-link,
-        .css-10am28f-text{
+        .css-10am28f-text,
+        .css-f32ptg-toggleDetails__summaryText{
         background-color: var(--primary-color) !important;
         color: var(--link-color) !important
         }
@@ -141,7 +142,12 @@
         .ic-Dashboard-header__layout.large,
         .ic-app-header,
         .css-tpuo6v-text,
-        .css-2bn4c9-view--inlineBlock-inlineListItem{
+        .css-2bn4c9-view--inlineBlock-inlineListItem,
+        .css-zlfjpm-text,
+        [href="https://isd271.instructure.com/privacy_policy"],
+        .css-1pmd509-view-link,
+        [href="http://facebook.com/instructure"],
+        [href="http://twitter.com/instructure"]{
         background-color: var(--secondary-color) !important;
         color: var(--text-color) !important
         }
