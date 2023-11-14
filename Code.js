@@ -104,7 +104,8 @@
 
         .CompletedItemsFacade-styles__contentPrimary,
         .Grouping-styles__title,
-        .css-13b78my-view-link{
+        .css-13b78my-view-link,
+        .css-10am28f-text{
         background-color: var(--primary-color) !important;
         color: var(--link-color) !important
         }
@@ -125,6 +126,7 @@
         .css-1sr6v3o-text,
         .css-1p1uj7k-truncateText,
         .css-1il4345-pill,
+        .css-kz09kf-pill,
         #breadcrumbs,
         [href="https://isd271.instructure.com/courses/79668"] > .ellipsible,
         .as-course-home.page-toolbar.header-bar,
@@ -137,7 +139,9 @@
         .tray-with-space-for-global-nav,
         .ic-app-header__logomark,
         .ic-Dashboard-header__layout.large,
-        .ic-app-header{
+        .ic-app-header,
+        .css-tpuo6v-text,
+        .css-2bn4c9-view--inlineBlock-inlineListItem{
         background-color: var(--secondary-color) !important;
         color: var(--text-color) !important
         }
