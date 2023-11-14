@@ -1,7 +1,7 @@
 (function() {
     'use strict';
 
-    
+
     // Define your custom CSS styles here
     const customCSS = `
 /* ONLY CHANGE THE HEX CODRS OF THESE COLORS, DONT CHANGE ANYTHING ELSE*/
@@ -54,125 +54,12 @@
             background-color: var(--secondary-color);
         }
 
-        .ic-app-header {
-            background-color: var(--secondary-color);
-            color: var(--text-color);
-        }
-        .ic-Dashboard-header__layout.large{
-        background-color: var(--secondary-color);
-        color: var(--text-color)
-        }
-        .planner-grouping.Grouping-styles__root{
-        background-color: var(--primary-color);
-        color: var(--text-color)
-        }
-        .planner-today.planner-day.Day-styles__root{
-        background-color: var(--primary-color);
-        color: var(--text-color)
-        }
-        div.planner-day.Day-styles__root{
-        background-color: var(--primary-color);
-        color: var(--text-color)
-        }
-        .EmptyDays-styles__nothingPlannedContainer{
-        background-color: var(--primary-color);
-        color: var(--text-color)
-        }
-        .PlannerHeader.PlannerHeader-styles__root{
-        background-color: var(--primary-color);
-        color: var(--text-color)
-        }
-        {
-        background-color: var(--primary-color) !important;
-        color: var(--link-color) !important
-        }
-        .ic-app-header__logomark{
-        background-color: var(--secondary-color);
-        color: var(--text-color)
-        }
-        .tray-with-space-for-global-nav{
-        background-color: var(--secondary-color);
-        color: var(--text-color)
-        }
-        .enRcg_eQnG.enRcg_pEgL.enRcg_dfBC.enRcg_bGBk{
-        background-color: var(--secondary-color);
-        color: var(--text-color)
-        }
-        {
-        background-color: var(--secondary-color);
-        color: var(--link-color)
-        }
         .fbyHH_bSMN.fbyHH_bGBk.fOyUs_bGBk > span{
         color: var(--link-color)
         }
-        .StickyButton-styles__newActivityButton.undefined.StickyButton-styles__root{
-        background-color: var(--primary-color) !important;
-        color: var(--text-color) !important
-        }
-        #breadcrumbs{
-        background-color: var(--secondary-color) !important;
-        color: var(--text-color) !important
-        }
-        [href="https://isd271.instructure.com/courses/79668"] > .ellipsible{
-        background-color: var(--secondary-color) !important;
-        color: var(--text-color) !important
-        }
-        .as-course-home.page-toolbar.header-bar{
-        background-color: var(--secondary-color) !important;
-        color: var(--text-color) !important
-        }
-        .course-title{
-        background-color: var(--secondary-color) !important;
-        color: var(--text-color) !important
-        }
-        tr{
-        background-color: var(--secondary-color) !important;
-        color: var(--text-color) !important
-        }
-        td{
-        background-color: var(--secondary-color) !important;
-        color: var(--text-color) !important
-        }
-        .summary > tbody > tr > th{
-        background-color: var(--secondary-color) !important;
-        color: var(--text-color) !important
-        }
-        {
-        background-color: var(--secondary-color) !important;
-        color: var(--link-color) !important
-        }
-        {
-        background-color: var(--secondary-color) !important;
-        color: var(--link-color) !important
-        }
-        {
-        background-color: var(--secondary-color) !important;
-        color: var(--link-color) !important
-        }
-        {
-        background-color: var(--secondary-color) !important;
-        color: var(--link-color) !important
-        }
-        {
-        background-color: var(--secondary-color) !important;
-        color: var(--link-color) !important
-        }
-        {
-        background-color: var(--secondary-color) !important;
-        color: var(--link-color) !important
-        }
-        {
-        background-color: var(--secondary-color) !important;
-        color: var(--link-color) !important
-        }
-        {
-        background-color: var(--secondary-color) !important;
-        color: var(--link-color) !important
-        }
-        .header.ig-header{
-        background-color: var(--secondary-color) !important;
-        color: var(--text-color) !important
-        }
+
+
+
         li.jpyTq_bCcs.jpyTq_ycrn.jpyTq_bGBk.fOyUs_bGBk > .fbyHH_bSMN.fbyHH_bGBk.fOyUs_bGBk,
         .ui-tabs-anchor,
         #assignments,
@@ -215,7 +102,9 @@
         color: var(--link-color) !important
         }
 
-        .CompletedItemsFacade-styles__contentPrimary,.Grouping-styles__title{
+        .CompletedItemsFacade-styles__contentPrimary,
+        .Grouping-styles__title,
+        .css-13b78my-view-link{
         background-color: var(--primary-color) !important;
         color: var(--link-color) !important
         }
@@ -232,7 +121,23 @@
         .context,
         .title,
         .submit_assignment_form,
-        .submission_comment_textarea{
+        .submission_comment_textarea,
+        .css-1sr6v3o-text,
+        .css-1p1uj7k-truncateText,
+        .css-1il4345-pill,
+        #breadcrumbs,
+        [href="https://isd271.instructure.com/courses/79668"] > .ellipsible,
+        .as-course-home.page-toolbar.header-bar,
+        .course-title,
+        tr,
+        td,
+        .summary > tbody > tr > th,
+        .header.ig-header,
+        .enRcg_eQnG.enRcg_pEgL.enRcg_dfBC.enRcg_bGBk,
+        .tray-with-space-for-global-nav,
+        .ic-app-header__logomark,
+        .ic-Dashboard-header__layout.large,
+        .ic-app-header{
         background-color: var(--secondary-color) !important;
         color: var(--text-color) !important
         }
@@ -240,11 +145,21 @@
         th,
         .faJyW_bYta.faJyW_blJt,
         .fLzZc_caGd,
-        .eJkkQ_bIuM.fLzZc_bQpq.fLzZc_doqw.fLzZc_fSpQ.fLzZc_bGBk{
+        .eJkkQ_bIuM.fLzZc_bQpq.fLzZc_doqw.fLzZc_fSpQ.fLzZc_bGBk,
+        .css-qbjizl-text,
+        .css-mum2ig-text,
+        .css-1uakmj8-text,
+        .StickyButton-styles__newActivityButton.undefined.StickyButton-styles__root,
+        .planner-grouping.Grouping-styles__root,
+        .planner-today.planner-day.Day-styles__root,
+        div.planner-day.Day-styles__root,
+        .EmptyDays-styles__nothingPlannedContainer,
+        .PlannerHeader.PlannerHeader-styles__root{
         background-color: var(--primary-color) !important;
         color: var(--text-color) !important
         }
-        .nav-badge,.comment_count,
+        .nav-badge,
+        .comment_count,
         .tooltip.toggle_comments_link,
         .show_guess_grades_link.button-sidebar-wide.btn,
         .unread_dot,
@@ -257,7 +172,8 @@
         background-color: var(--link-color) !important;
         color: var(--primary-color)!important;
         }
-        .name{
+        .name,
+        .external{
         background-color: var(--secondary-color) !important;
         color: var(--link-color) !important;
         }
@@ -371,7 +287,7 @@ if (isNewUser()) {
 }
 
 
-    
+
 // Create a draggable popup box
 const popupDiv = document.createElement('div');
 popupDiv.id = 'colorPopup';
