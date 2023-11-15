@@ -11,6 +11,7 @@ latest update:
 - added handling for saving rgb colors
 - added new theme "RGB Lights"
 - added GPA calculator (not weighted)
+- more CSS styles for the calender page (editing calender dates)
 
 previous updates:
 
