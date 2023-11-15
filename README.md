@@ -5,6 +5,7 @@ you can run the script as a bookmarklet, or a tameprmonkey script, but IMO tampe
 
 if you want an updating version for it the tampermonkey and bookmarklets have their own auto-updating scripts.
 
+Feel free to change it and reupload, just make sure to give credit :)
 latest update:
 - added handling for saving rgb colors
 - added new theme "RGB Lights"
