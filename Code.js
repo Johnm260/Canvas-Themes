@@ -414,44 +414,99 @@ document.getElementById('exportTheme').addEventListener('click', exportTheme);
 
 
 
-    // Function to load colors from cookies and update CSS variables
-    function loadThemeFromCookies() {
-      const cookies = document.cookie.split(';').map(cookie => cookie.trim());
-      for (const cookie of cookies) {
-        const [name, value] = cookie.split('=').map(item => item.trim());
-        switch (name) {
-          case 'primaryColor':
-            updateCSSVariable('--primary-color', value);
-            break;
-          case 'secondaryColor':
-            updateCSSVariable('--secondary-color', value);
-            break;
-          case 'linkColor':
-            updateCSSVariable('--link-color', value);
-            break;
-          case 'textColor':
-            updateCSSVariable('--text-color', value);
-            break;
+// Function to save the current color theme as cookies
+function saveCookies() {
+  alert("Saved to cookies!");
+
+  // Get the current color values
+  const primaryColor = getComputedStyle(document.documentElement).getPropertyValue('--primary-color').trim();
+  const secondaryColor = getComputedStyle(document.documentElement).getPropertyValue('--secondary-color').trim();
+  const linkColor = getComputedStyle(document.documentElement).getPropertyValue('--link-color').trim();
+  const textColor = getComputedStyle(document.documentElement).getPropertyValue('--text-color').trim();
+
+  // Get the current rainbow color
+  const currentRainbowColor = getComputedStyle(document.documentElement).getPropertyValue('--rainbow-color').trim();
+
+  // Create an array to store the colors that should be saved as rainbow
+  const rainbowColors = [];
+
+  // Check if each color matches the rainbow color and add it to the array
+  if (primaryColor === currentRainbowColor) {
+    rainbowColors.push('--primary-color');
+  }
+  if (secondaryColor === currentRainbowColor) {
+    rainbowColors.push('--secondary-color');
+  }
+  if (linkColor === currentRainbowColor) {
+    rainbowColors.push('--link-color');
+  }
+  if (textColor === currentRainbowColor) {
+    rainbowColors.push('--text-color');
+  }
+
+  // Set the cookies with proper 'expires' and 'path' parameters
+  document.cookie = `primaryColor=${primaryColor}; expires=Sat, 31 Dec 2030 12:00:00 UTC; path=/`;
+  document.cookie = `secondaryColor=${secondaryColor}; expires=Sat, 31 Dec 2030 12:00:00 UTC; path=/`;
+  document.cookie = `linkColor=${linkColor}; expires=Sat, 31 Dec 2030 12:00:00 UTC; path=/`;
+  document.cookie = `textColor=${textColor}; expires=Sat, 31 Dec 2030 12:00:00 UTC; path=/`;
+
+  // Save the rainbow colors as a comma-separated string
+  const rainbowColorsString = rainbowColors.join(',');
+  document.cookie = `rainbowColors=${rainbowColorsString}; expires=Sat, 31 Dec 2030 12:00:00 UTC; path=/`;
+}
+
+// Function to load colors from cookies and update CSS variables
+function loadThemeFromCookies() {
+  const cookies = document.cookie.split(';').map(cookie => cookie.trim());
+
+  // Function to set color variable or fallback to the default color
+  const setColorVariable = (variable, value) => {
+    if (value && value !== 'null') {
+      updateCSSVariable(variable, value);
+    }
+  };
+
+  for (const cookie of cookies) {
+    const [name, value] = cookie.split('=').map(item => item.trim());
+const rainbowColors = value.split(',');
+    switch (name) {
+      case 'primaryColor':
+        setColorVariable('--primary-color', value);
+        break;
+      case 'secondaryColor':
+        setColorVariable('--secondary-color', value);
+        break;
+      case 'linkColor':
+        setColorVariable('--link-color', value);
+        break;
+      case 'textColor':
+        setColorVariable('--text-color', value);
+        break;
+      case 'rainbowColors':
+        for (const color of rainbowColors) {
+          switch (color) {
+            case '--primary-color':
+              updateCSSVariable('--primary-color', 'var(--rainbow-color)');
+              break;
+            case '--secondary-color':
+              updateCSSVariable('--secondary-color', 'var(--rainbow-color)');
+              break;
+            case '--link-color':
+              updateCSSVariable('--link-color', 'var(--rainbow-color)');
+              break;
+            case '--text-color':
+              updateCSSVariable('--text-color', 'var(--rainbow-color)');
+              break;
+          }
         }
-      }
+        break;
     }
+  }
+}
 
-    // Function to save the current color theme as cookies
-    function saveCookies() {
-      alert("Saved to cookies!")
-      const primaryColor = getComputedStyle(document.documentElement).getPropertyValue('--primary-color').trim();
-      const secondaryColor = getComputedStyle(document.documentElement).getPropertyValue('--secondary-color').trim();
-      const linkColor = getComputedStyle(document.documentElement).getPropertyValue('--link-color').trim();
-      const textColor = getComputedStyle(document.documentElement).getPropertyValue('--text-color').trim();
-
-      // Set the cookies with proper 'expires' and 'path' parameters
-      document.cookie = `primaryColor=${primaryColor}; expires=Sat, 31 Dec 2030 12:00:00 UTC; path=/`;
-      document.cookie = `secondaryColor=${secondaryColor}; expires=Sat, 31 Dec 2030 12:00:00 UTC; path=/`;
-      document.cookie = `linkColor=${linkColor}; expires=Sat, 31 Dec 2030 12:00:00 UTC; path=/`;
-      document.cookie = `textColor=${textColor}; expires=Sat, 31 Dec 2030 12:00:00 UTC; path=/`;
-    }
-
-    // Attach the event listener for the "Save Theme" button directly
+// Call the function to load colors from cookies when the script runs
+loadThemeFromCookies();
+// Attach the event listener for the "Save Theme" button directly
     document.getElementById('cookiesave').addEventListener('click', saveCookies);
 // Define theme objects
 const themes = {
