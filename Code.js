@@ -324,6 +324,7 @@ popupDiv.innerHTML = `
       <option value="theme4">Bright Blue</option>
       <option value="theme5">mega haxor</option>
       <option value="theme6">Dark Purple</option>
+      <option value="theme7">RGB Lights</option>
     </select>
     <br />
     <button id="applyColors">Apply</button>
@@ -545,6 +546,12 @@ const themes = {
     secondaryColor: '#111',
     linkColor: '#A0F',
     textColor: '#B9F',
+  },
+  theme7: {
+    primaryColor: '#000',
+    secondaryColor: '#111',
+    linkColor: 'var(--rainbow-color)',
+    textColor: 'var(--rainbow-color)',
   },
 };
 
