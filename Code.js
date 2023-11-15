@@ -98,7 +98,7 @@ if (window.self === window.top) {
         .context_external_tool_22155,
         .primary-nav-transitions,
         .responsive_student_grades_page,
-        .css-1bd7cvx-view3{
+        .css-1bd7cvx-view{
         background-color: var(--secondary-color) !important;
         color: var(--link-color) !important
         }
@@ -107,7 +107,9 @@ if (window.self === window.top) {
         .Grouping-styles__title,
         .css-13b78my-view-link,
         .css-10am28f-text,
-        .css-f32ptg-toggleDetails__summaryText{
+        .css-f32ptg-toggleDetails__summaryText,
+        .ic-DashboardCard__header_content,
+        div.ic-DashboardCard{
         background-color: var(--primary-color) !important;
         color: var(--link-color) !important
         }
@@ -148,7 +150,15 @@ if (window.self === window.top) {
         [href="https://isd271.instructure.com/privacy_policy"],
         .css-1pmd509-view-link,
         [href="http://facebook.com/instructure"],
-        [href="http://twitter.com/instructure"]{
+        [href="http://twitter.com/instructure"],
+        #edit_calendar_event_form_holder,
+        .css-j68kdy-formFieldLabel,
+        .css-get9n4-textInput__facade,
+        .help-tray.navigation-tray-container,
+        .ui-helper-clearfix.ui-corner-all.ui-widget-header.ui-dialog-titlebar,
+        .css-183j57y-formFieldLayout,
+        #TextInput_0,
+        .css-1mtgjqq-textInput{
         background-color: var(--secondary-color) !important;
         color: var(--text-color) !important
         }
@@ -693,7 +703,7 @@ document.getElementById('textColor').value = currentColors.textColor;
 
 
     } else {
-  console.log("Tampermonkey script is running inside an iframe. Not executing."); //Prevents looping GPA calculating iframes, and ruining css styling inside quiz iframes, ect.
+  console.log("Tampermonkey script is running inside an iframe. Not executing.");
 }
 
 })();
