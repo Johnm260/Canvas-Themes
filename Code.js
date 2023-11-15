@@ -1,10 +1,13 @@
 (function() {
     'use strict';
+if (window.self === window.top) {
 
     // Define your custom CSS styles here
     const customCSS = `
 /* ONLY CHANGE THE HEX CODRS OF THESE COLORS, DONT CHANGE ANYTHING ELSE*/
 /* fav colors: primary - #002b36, secondary - #04242c, link color - #ff66ff, text color - #ffccff*/
+
+
 
 /* Replace below with theme*/
 
@@ -12,9 +15,14 @@
 
 /* Replace above with theme*/
 
+
 :root{--rainbow-color: #FF0000;}
 
+
+
+
 /* DO NOT EDIT BELOW*/
+
 
 .title-bar {
   background-color: var(--secondary-color); /* Set secondary color as the background */
@@ -40,6 +48,8 @@
   color: var(--secondary-color); /* Change text color on hover */
 }
 
+
+
         body{
             background-color: var(--secondary-color);
         }
@@ -47,7 +57,9 @@
         .fbyHH_bSMN.fbyHH_bGBk.fOyUs_bGBk > span{
         color: var(--link-color)
         }
-        
+
+
+
         li.jpyTq_bCcs.jpyTq_ycrn.jpyTq_bGBk.fOyUs_bGBk > .fbyHH_bSMN.fbyHH_bGBk.fOyUs_bGBk,
         .ui-tabs-anchor,
         #assignments,
@@ -85,7 +97,8 @@
         .module-sequence-footer-content,
         .context_external_tool_22155,
         .primary-nav-transitions,
-        .responsive_student_grades_page{
+        .responsive_student_grades_page,
+        .css-1bd7cvx-view3{
         background-color: var(--secondary-color) !important;
         color: var(--link-color) !important
         }
@@ -156,7 +169,6 @@
         background-color: var(--primary-color) !important;
         color: var(--text-color) !important
         }
-        
         .nav-badge,
         .comment_count,
         .tooltip.toggle_comments_link,
@@ -181,7 +193,9 @@
         color: var(--link-color) !important;
         }
 `;
-    
+
+
+
 // Create a style element and append it to the document
     const styleElement = document.createElement('style');
     styleElement.textContent = customCSS;
@@ -243,6 +257,8 @@ function isNewUser() {
   return document.cookie.indexOf('NewUser=1') === -1;
 }
 
+
+
 // Create a draggable welcome popup
 function createWelcomePopup() {
     const welcomePopup = document.createElement('div');
@@ -270,6 +286,7 @@ function createWelcomePopup() {
   // Event listener for the close button
   welcomePopup.querySelector('#closeButtonWelcome').addEventListener('click', closeWelcomePopup);
 
+
   // Append the welcome popup to the document body
   document.body.appendChild(welcomePopup);
 }
@@ -279,6 +296,8 @@ if (isNewUser()) {
   // Create the welcome popup for new users
   createWelcomePopup();
 }
+
+
 
 // Create a draggable popup box
 const popupDiv = document.createElement('div');
@@ -317,6 +336,10 @@ popupDiv.innerHTML = `
     <input type="text" id="exportedTheme" readonly style="background-color: var(--primary-color); color: var(--text-color);" />
   </div>
 `;
+
+
+
+
 
 // Load theme from cookies when the script runs
 loadThemeFromCookies();
@@ -390,6 +413,89 @@ function exportTheme() {
 }
 
 document.getElementById('exportTheme').addEventListener('click', exportTheme);
+
+
+// Function to calculate GPA from grades array
+function calculateGPA(grades) {
+  const validGrades = grades.filter(grade => grade !== "No Grade" && grade !== 0); // Exclude "No Grade" and 0 values
+  const sum = validGrades.reduce((acc, grade) => acc + grade, 0);
+  const average = sum / validGrades.length;
+
+  return average / 25; // Assuming the GPA is calculated as the average percentage divided by 25
+}
+
+// Function to open Canvas in an iframe, open grades, calculate GPA, and update the dashboard
+function processCanvas() {
+    // Step 1: Create an iframe
+    const iframe = document.createElement('iframe');
+    document.body.appendChild(iframe);
+
+    // Make the iframe invisible for users
+    iframe.style.position = 'absolute';
+    iframe.style.top = '-9999px';
+    iframe.style.left = '-9999px';
+    iframe.style.width = '100%';
+    iframe.style.height = '100%';;
+
+  // Step 2: Load Canvas into the iframe
+  iframe.src = 'https://isd271.instructure.com'; // Replace with the actual Canvas URL
+
+  // Step 3: Wait for Canvas to load
+  setTimeout(() => {
+    // Step 4: Emulate actions to open grades
+    const openGradesButton = iframe.contentDocument.querySelector('button.css-rt7zzj-view--inlineBlock-baseButton:nth-of-type(3)');
+    if (openGradesButton) {
+      openGradesButton.click();
+
+      // Step 5: Wait for grades to load
+      setTimeout(() => {
+        // Wait additional time before interacting with the iframe content (5 seconds in this case)
+        // Adjust this delay based on the time it takes for the content to fully load
+        setTimeout(() => {
+          // Collect and process grades
+          const gradeElements = iframe.contentDocument.querySelectorAll('div.css-8oqple-text'); // Replace with the actual selector for grade elements
+          const grades = Array.from(gradeElements).map(gradeElement => {
+            const textContent = gradeElement.textContent.trim();
+
+            if (textContent !== 'No Grade') {
+              const percentageMatch = textContent.match(/(\d+(\.\d+)?)%/);
+
+              if (percentageMatch && percentageMatch[1]) {
+                return parseFloat(percentageMatch[1]);
+              }
+            }
+
+            return 0; // Treat "No Grade" and 0 as invalid grades
+          });
+
+          if (grades.length === 0) {
+            console.error('No valid grades found.');
+          } else {
+            // Step 6: Calculate GPA
+            const gpa = calculateGPA(grades);
+
+            // Step 7: Close the iframe
+            document.body.removeChild(iframe);
+
+            // Step 8: Update the main page's dashboard text
+            const dashboardSpan = document.querySelector('span.hidden-phone');
+            if (dashboardSpan) {
+              dashboardSpan.textContent = `Dashboard - GPA: ${gpa.toFixed(2)}`;
+            } else {
+              console.error('Dashboard span not found.');
+            }
+          }
+        }, 1000); // Adjust the delay based on additional loading time
+      }, 2000); // Adjust the delay based on grades loading time
+    } else {
+      console.error('Open grades button not found.');
+      document.body.removeChild(iframe); // Remove the iframe if the button is not found
+    }
+  }, 7000); // Adjust the delay based on Canvas loading time
+}
+
+// Call the function directly
+processCanvas();
 
 // Function to save the current color theme as cookies
 function saveCookies() {
@@ -584,5 +690,10 @@ document.getElementById('primaryColor').value = currentColors.primaryColor;
 document.getElementById('secondaryColor').value = currentColors.secondaryColor;
 document.getElementById('linkColor').value = currentColors.linkColor;
 document.getElementById('textColor').value = currentColors.textColor;
+
+
+    } else {
+  console.log("Tampermonkey script is running inside an iframe. Not executing."); //Prevents looping GPA calculating iframes, and ruining css styling inside quiz iframes, ect.
+}
 
 })();
