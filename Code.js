@@ -1,13 +1,10 @@
 (function() {
     'use strict';
 
-
     // Define your custom CSS styles here
     const customCSS = `
 /* ONLY CHANGE THE HEX CODRS OF THESE COLORS, DONT CHANGE ANYTHING ELSE*/
 /* fav colors: primary - #002b36, secondary - #04242c, link color - #ff66ff, text color - #ffccff*/
-
-
 
 /* Replace below with theme*/
 
@@ -15,14 +12,9 @@
 
 /* Replace above with theme*/
 
-
 :root{--rainbow-color: #FF0000;}
 
-
-
-
 /* DO NOT EDIT BELOW*/
-
 
 .title-bar {
   background-color: var(--secondary-color); /* Set secondary color as the background */
@@ -48,8 +40,6 @@
   color: var(--secondary-color); /* Change text color on hover */
 }
 
-
-
         body{
             background-color: var(--secondary-color);
         }
@@ -57,9 +47,7 @@
         .fbyHH_bSMN.fbyHH_bGBk.fOyUs_bGBk > span{
         color: var(--link-color)
         }
-
-
-
+        
         li.jpyTq_bCcs.jpyTq_ycrn.jpyTq_bGBk.fOyUs_bGBk > .fbyHH_bSMN.fbyHH_bGBk.fOyUs_bGBk,
         .ui-tabs-anchor,
         #assignments,
@@ -168,6 +156,7 @@
         background-color: var(--primary-color) !important;
         color: var(--text-color) !important
         }
+        
         .nav-badge,
         .comment_count,
         .tooltip.toggle_comments_link,
@@ -192,9 +181,7 @@
         color: var(--link-color) !important;
         }
 `;
-
-
-
+    
 // Create a style element and append it to the document
     const styleElement = document.createElement('style');
     styleElement.textContent = customCSS;
@@ -256,8 +243,6 @@ function isNewUser() {
   return document.cookie.indexOf('NewUser=1') === -1;
 }
 
-
-
 // Create a draggable welcome popup
 function createWelcomePopup() {
     const welcomePopup = document.createElement('div');
@@ -285,7 +270,6 @@ function createWelcomePopup() {
   // Event listener for the close button
   welcomePopup.querySelector('#closeButtonWelcome').addEventListener('click', closeWelcomePopup);
 
-
   // Append the welcome popup to the document body
   document.body.appendChild(welcomePopup);
 }
@@ -295,8 +279,6 @@ if (isNewUser()) {
   // Create the welcome popup for new users
   createWelcomePopup();
 }
-
-
 
 // Create a draggable popup box
 const popupDiv = document.createElement('div');
@@ -335,10 +317,6 @@ popupDiv.innerHTML = `
     <input type="text" id="exportedTheme" readonly style="background-color: var(--primary-color); color: var(--text-color);" />
   </div>
 `;
-
-
-
-
 
 // Load theme from cookies when the script runs
 loadThemeFromCookies();
@@ -412,8 +390,6 @@ function exportTheme() {
 }
 
 document.getElementById('exportTheme').addEventListener('click', exportTheme);
-
-
 
 // Function to save the current color theme as cookies
 function saveCookies() {
@@ -608,7 +584,5 @@ document.getElementById('primaryColor').value = currentColors.primaryColor;
 document.getElementById('secondaryColor').value = currentColors.secondaryColor;
 document.getElementById('linkColor').value = currentColors.linkColor;
 document.getElementById('textColor').value = currentColors.textColor;
-
-
 
 })();
