@@ -10,6 +10,7 @@ Feel free to change it and reupload, just make sure to give credit :)
 latest update:
 - added handling for saving rgb colors
 - added new theme "RGB Lights"
+- added GPA calculator (not weighted)
 
 previous updates:
 
