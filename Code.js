@@ -341,6 +341,7 @@ popupDiv.innerHTML = `
     <button id="applyColors">Apply</button>
     <button id="exportTheme">Export Theme</button>
     <button id="cookiesave">Save Colors</button>
+    <button id="GPA">Calculate GPA</button>
     <br /><br />
     <label for="exportedTheme">Exported Theme:</label>
     <input type="text" id="exportedTheme" readonly style="background-color: var(--primary-color); color: var(--text-color);" />
@@ -504,8 +505,8 @@ function processCanvas() {
   }, 7000); // Adjust the delay based on Canvas loading time
 }
 
-// Call the function directly
-processCanvas();
+// Event listener for Apply button
+document.getElementById('GPA').addEventListener('click', processCanvas);
 
 // Function to save the current color theme as cookies
 function saveCookies() {
