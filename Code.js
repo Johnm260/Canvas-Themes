@@ -91,14 +91,11 @@ if (window.self === window.top) {
         .qr_mobile_login,
         .past_global_announcements,
         .quizzes,
-        .context_external_tool_2838,
-        .context_external_tool_3235,
-        .context_external_tool_15058,
         .module-sequence-footer-content,
-        .context_external_tool_22155,
         .primary-nav-transitions,
         .responsive_student_grades_page,
-        .css-1bd7cvx-view{
+        .css-1bd7cvx-view,
+        .pages{
         background-color: var(--secondary-color) !important;
         color: var(--link-color) !important
         }
@@ -158,7 +155,9 @@ if (window.self === window.top) {
         .ui-helper-clearfix.ui-corner-all.ui-widget-header.ui-dialog-titlebar,
         .css-183j57y-formFieldLayout,
         #TextInput_0,
-        .css-1mtgjqq-textInput{
+        .css-1mtgjqq-textInput,
+        .css-z40h7v-text,
+        .css-1j2lgg9-text{
         background-color: var(--secondary-color) !important;
         color: var(--text-color) !important
         }
@@ -175,7 +174,11 @@ if (window.self === window.top) {
         .planner-today.planner-day.Day-styles__root,
         div.planner-day.Day-styles__root,
         .EmptyDays-styles__nothingPlannedContainer,
-        .PlannerHeader.PlannerHeader-styles__root{
+        .PlannerHeader.PlannerHeader-styles__root,
+        .css-vxe90h-view--inlineBlock,
+        .css-3ub1ka-view--inlineBlock-baseButton,
+        #submit_from_external_tool_form_205,
+        .submission_comment{
         background-color: var(--primary-color) !important;
         color: var(--text-color) !important
         }
@@ -238,6 +241,18 @@ function smoothlyChangeRainbowColor() {
     ]; // Smooth rainbow transition
     let currentIndex = 0;
 
+
+// Get all elements with a class starting with 'context_external_tool_'
+const elements = document.querySelectorAll('[class^="context_external_tool_"]');
+
+// Loop through each element and apply custom styles
+elements.forEach(element => {
+  // Apply custom styles using element.style.setProperty
+  element.style.setProperty('background-color', 'var(--secondary-color)', 'important');
+  element.style.setProperty('color', 'var(--link-color)', 'important');
+  // Add any other styles or modifications here
+});
+
     setInterval(() => {
         root.style.setProperty('--rainbow-color', rainbowColors[currentIndex]);
         currentIndex = (currentIndex + 1) % rainbowColors.length;
@@ -276,7 +291,7 @@ function createWelcomePopup() {
     welcomePopup.style.cssText = 'position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: var(--primary-color); color: #333; padding: 10px; border: 1px solid #ccc; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); cursor: move; z-index: 9999; display: block;';
     welcomePopup.innerHTML = `
       <div id="titleBar" style="background-color: var(--primary-color); color: var(--text-color);" padding: 5px; cursor: move; border-bottom: 1px solid #ccc; display: flex; justify-content: space-between; align-items: center;">
-        <span style="font-size: 16px; padding: 2px;">Welcome to the Bobeavus Canvas Themes</span>
+        <span style="font-size: 16px; padding: 2px;">Welcome to the Bobeavus Console</span>
         <br/>
         <span id="closeButtonWelcome" style="cursor: pointer; font-size: 16px; padding: 2px; background-color: var(--primary-color); color: var(--text-color);">Press this to close.</span>
       </div>
@@ -446,7 +461,7 @@ function processCanvas() {
     iframe.style.top = '-9999px';
     iframe.style.left = '-9999px';
     iframe.style.width = '100%';
-    iframe.style.height = '100%';;
+    iframe.style.height = '100%';
 
   // Step 2: Load Canvas into the iframe
   iframe.src = 'https://isd271.instructure.com'; // Replace with the actual Canvas URL
