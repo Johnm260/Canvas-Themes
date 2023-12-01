@@ -434,7 +434,7 @@ function applyColors() {
   updateCSSVariable('--link-color', linkColor);
   updateCSSVariable('--text-color', textColor);
 
-  changeIconColor('--text-color', '--primary-color', '--rainbow-color');
+  changeIconColor('--link-color', '--primary-color', '--rainbow-color');
 }
 
 function changeIconColor(defaultColorVar, activeColorVar, rainbowColorVar) {
@@ -471,7 +471,7 @@ function changeIconColor(defaultColorVar, activeColorVar, rainbowColorVar) {
 }
 
 setInterval(() => {
-  changeIconColor('--text-color', '--primary-color', '--rainbow-color');
+  changeIconColor('--link-color', '--primary-color', '--rainbow-color');
 }, 50); // Adjust the interval time as needed
 
 
@@ -733,7 +733,7 @@ function applyTheme() {
     updateCSSVariable('--secondary-color', theme.secondaryColor);
     updateCSSVariable('--link-color', theme.linkColor);
     updateCSSVariable('--text-color', theme.textColor);
-    changeIconColor('--text-color', '--primary-color', '--rainbow-color');
+    changeIconColor('--link-color', '--primary-color', '--rainbow-color');
   }
 }
 
