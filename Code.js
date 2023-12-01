@@ -1,6 +1,6 @@
 (function() {
     'use strict';
-if (window.self === window.top) {
+if (window.self === window.top && window.location.href.includes(".instructure.com")) {
 
     // Define your custom CSS styles here
     const customCSS = `
@@ -24,7 +24,7 @@ if (window.self === window.top) {
 /* DO NOT EDIT BELOW*/
 
 
-.title-bar {
+.top window .title-bar {
   background-color: var(--secondary-color); /* Set secondary color as the background */
   color: var(--text-color); /* Set text color for the title bar */
   padding: 8px; /* Adjust padding as needed */
@@ -197,7 +197,8 @@ if (window.self === window.top) {
         color: var(--primary-color)!important;
         }
         .name,
-        .external{
+        .external,
+        .ic-app-header__menu-list-item--active{
         background-color: var(--secondary-color) !important;
         color: var(--link-color) !important;
         }
@@ -243,7 +244,14 @@ function smoothlyChangeRainbowColor() {
 
 
 // Get all elements with a class starting with 'context_external_tool_'
-const elements = document.querySelectorAll('[class^="context_external_tool_"]');
+const elements1 = document.querySelectorAll('[class^="context_external_tool_"]');
+const elements2 = document.querySelectorAll('[href]');
+
+// Convert NodeLists to arrays and concatenate them
+const elements = Array.from(elements1).concat(Array.from(elements2));
+
+// Now combinedElements contains all elements matching either condition
+
 
 // Loop through each element and apply custom styles
 elements.forEach(element => {
@@ -252,6 +260,10 @@ elements.forEach(element => {
   element.style.setProperty('color', 'var(--link-color)', 'important');
   // Add any other styles or modifications here
 });
+
+
+
+
 
     setInterval(() => {
         root.style.setProperty('--rainbow-color', rainbowColors[currentIndex]);
@@ -421,7 +433,54 @@ function applyColors() {
   updateCSSVariable('--secondary-color', secondaryColor);
   updateCSSVariable('--link-color', linkColor);
   updateCSSVariable('--text-color', textColor);
+
+  changeIconColor('--text-color', '--primary-color', '--rainbow-color');
 }
+
+function changeIconColor(defaultColorVar, activeColorVar, rainbowColorVar) {
+  const defaultColor = getComputedStyle(document.documentElement).getPropertyValue(defaultColorVar);
+  const activeColor = getComputedStyle(document.documentElement).getPropertyValue(activeColorVar);
+  const rainbowColor = getComputedStyle(document.documentElement).getPropertyValue(rainbowColorVar);
+
+  const icons = document.querySelectorAll('.ic-icon-svg path');
+  icons.forEach((icon) => {
+    const iconDefaultColorVar = getComputedStyle(icon).getPropertyValue(defaultColorVar);
+    const iconActiveColorVar = getComputedStyle(icon).getPropertyValue(activeColorVar);
+
+    if (icon.closest('.ic-app-header__menu-list-item--active')) {
+      icon.style.fill = iconActiveColorVar.trim() === rainbowColor.trim() ? rainbowColor : activeColor;
+    } else {
+      icon.style.fill = iconDefaultColorVar.trim() === rainbowColor.trim() ? rainbowColor : defaultColor;
+    }
+  });
+
+  // Get the active menu item
+  const activeMenuItem = document.querySelector('.ic-app-header__menu-list-item--active');
+
+  // Find the element you want to change within the active menu item
+  const elementToChange = activeMenuItem.querySelector('.ic-app-header__menu-list-link');
+
+  // Check if either primary or text color is set to rainbow to change the background color
+  const primaryColor = getComputedStyle(document.documentElement).getPropertyValue('--primary-color');
+  const textColor = getComputedStyle(document.documentElement).getPropertyValue('--text-color');
+  const isRainbow = primaryColor.trim() === rainbowColor.trim() || textColor.trim() === rainbowColor.trim();
+
+  if (elementToChange) {
+    elementToChange.style.backgroundColor = isRainbow ? rainbowColor : defaultColor;
+  }
+}
+
+setInterval(() => {
+  changeIconColor('--text-color', '--primary-color', '--rainbow-color');
+}, 50); // Adjust the interval time as needed
+
+
+
+
+
+
+
+
 
 // Event listener for Apply button
 document.getElementById('applyColors').addEventListener('click', applyColors);
@@ -674,6 +733,7 @@ function applyTheme() {
     updateCSSVariable('--secondary-color', theme.secondaryColor);
     updateCSSVariable('--link-color', theme.linkColor);
     updateCSSVariable('--text-color', theme.textColor);
+    changeIconColor('--text-color', '--primary-color', '--rainbow-color');
   }
 }
 
