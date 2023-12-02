@@ -149,8 +149,7 @@
         .css-1j2lgg9-text,
         .css-1nz9urh,
         .css-btw693-closeButton,
-        .transition--fade-entered.css-1osm78b-view-alert,
-        .css-plssqy-view--inlineBlock-baseButton{
+        .transition--fade-entered.css-1osm78b-view-alert{
         background-color: var(--secondary-color) !important;
         color: var(--text-color) !important
         }
