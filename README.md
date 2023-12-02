@@ -9,7 +9,8 @@ Feel free to change it and reupload it, just make sure to give credit :)
 
 latest update:
 
-- added icon color support
+- added side bar icon color support
+- added dashboard icon support
 - made icons work with rbg
 - made all hrefs have CSS styles
 - "Beautified" code, and removed excessive spaces
