@@ -95,7 +95,8 @@
         .css-10am28f-text,
         .css-f32ptg-toggleDetails__summaryText,
         .ic-DashboardCard__header_content,
-        div.ic-DashboardCard{
+        div.ic-DashboardCard,
+        .css-1xnn9jb-inlineSVG-svgIcon{
         background-color: var(--primary-color) !important;
         color: var(--link-color) !important
         }
@@ -191,8 +192,7 @@
         .menu-item__text,
         .menu-item__badge,
         .css-qpm3ep-view--block-badge,
-        .css-x3bprn-view--inlineBlock-badge,
-        .css-1xnn9jb-inlineSVG-svgIcon{
+        .css-x3bprn-view--inlineBlock-badge{
         background-color: var(--link-color) !important;
         color: var(--primary-color)!important;
         }
