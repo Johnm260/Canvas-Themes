@@ -146,7 +146,11 @@
         #TextInput_0,
         .css-1mtgjqq-textInput,
         .css-z40h7v-text,
-        .css-1j2lgg9-text{
+        .css-1j2lgg9-text,
+        .css-1nz9urh,
+        .css-btw693-closeButton,
+        .transition--fade-entered.css-1osm78b-view-alert,
+        .css-plssqy-view--inlineBlock-baseButton{
         background-color: var(--secondary-color) !important;
         color: var(--text-color) !important
         }
@@ -167,7 +171,11 @@
         .css-vxe90h-view--inlineBlock,
         .css-3ub1ka-view--inlineBlock-baseButton,
         #submit_from_external_tool_form_205,
-        .submission_comment{
+        .submission_comment,
+        .Opportunities-styles__root,
+        .transition--fade-entered.css-1ktha4a-view-panel__content,
+        .css-njggem-view-tabs__tabList,
+        .css-qfe6jw{
         background-color: var(--primary-color) !important;
         color: var(--text-color) !important
         }
@@ -182,7 +190,10 @@
         .bDzpk_qOas.bDzpk_fZWR.bDzpk_busO.bDzpk_bGBk.fOyUs_desw.fOyUs_bGBk,
         .btn,
         .menu-item__text,
-        .menu-item__badge{
+        .menu-item__badge,
+        .css-qpm3ep-view--block-badge,
+        .css-x3bprn-view--inlineBlock-badge,
+        .css-1xnn9jb-inlineSVG-svgIcon{
         background-color: var(--link-color) !important;
         color: var(--primary-color)!important;
         }
@@ -200,7 +211,7 @@
         }
 
 `;
-        
+
         // Create a style element and append it to the document
         const styleElement = document.createElement('style');
         styleElement.textContent = customCSS;
@@ -416,38 +427,39 @@
             changeIconColor('--link-color', '--primary-color', '--rainbow-color');
         }
 
-        function changeIconColor(defaultColorVar, activeColorVar, rainbowColorVar) {
-            const defaultColor = getComputedStyle(document.documentElement).getPropertyValue(defaultColorVar);
-            const activeColor = getComputedStyle(document.documentElement).getPropertyValue(activeColorVar);
-            const rainbowColor = getComputedStyle(document.documentElement).getPropertyValue(rainbowColorVar);
+    function changeIconColor(defaultColorVar, activeColorVar, rainbowColorVar) {
+    const defaultColor = getComputedStyle(document.documentElement).getPropertyValue(defaultColorVar);
+    const activeColor = getComputedStyle(document.documentElement).getPropertyValue(activeColorVar);
+    const rainbowColor = getComputedStyle(document.documentElement).getPropertyValue(rainbowColorVar);
 
-            const icons = document.querySelectorAll('.ic-icon-svg path');
-            icons.forEach((icon) => {
-                const iconDefaultColorVar = getComputedStyle(icon).getPropertyValue(defaultColorVar);
-                const iconActiveColorVar = getComputedStyle(icon).getPropertyValue(activeColorVar);
+    const firstGroupIcons = document.querySelectorAll('.ic-icon-svg path');
+    firstGroupIcons.forEach((path) => {
+        const icon = path.closest('.ic-icon-svg');
+        const iconDefaultColorVar = getComputedStyle(icon).getPropertyValue(defaultColorVar);
+        const iconActiveColorVar = getComputedStyle(icon).getPropertyValue(activeColorVar);
 
-                if (icon.closest('.ic-app-header__menu-list-item--active')) {
-                    icon.style.fill = iconActiveColorVar.trim() === rainbowColor.trim() ? rainbowColor : activeColor;
-                } else {
-                    icon.style.fill = iconDefaultColorVar.trim() === rainbowColor.trim() ? rainbowColor : defaultColor;
-                }
-            });
-
-            // Get the active menu item
-            const activeMenuItem = document.querySelector('.ic-app-header__menu-list-item--active');
-
-            // Find the element you want to change within the active menu item
-            const elementToChange = activeMenuItem.querySelector('.ic-app-header__menu-list-link');
-
-            // Check if either primary or text color is set to rainbow to change the background color
-            const primaryColor = getComputedStyle(document.documentElement).getPropertyValue('--primary-color');
-            const textColor = getComputedStyle(document.documentElement).getPropertyValue('--text-color');
-            const isRainbow = primaryColor.trim() === rainbowColor.trim() || textColor.trim() === rainbowColor.trim();
-
-            if (elementToChange) {
-                elementToChange.style.backgroundColor = isRainbow ? rainbowColor : defaultColor;
-            }
+        if (icon.classList.contains('active')) {
+            path.style.fill = iconActiveColorVar.trim() === rainbowColor.trim() ? rainbowColor : activeColor;
+        } else {
+            path.style.fill = iconDefaultColorVar.trim() === rainbowColor.trim() ? rainbowColor : defaultColor;
         }
+    });
+
+    const secondGroupIcons = document.querySelectorAll('.css-quqv7u-baseButton__iconSVG svg path');
+    secondGroupIcons.forEach((path) => {
+        const icon = path.closest('.css-quqv7u-baseButton__iconSVG');
+        const iconDefaultColorVar = getComputedStyle(icon).getPropertyValue(defaultColorVar);
+        const iconActiveColorVar = getComputedStyle(icon).getPropertyValue(activeColorVar);
+
+        if (icon.classList.contains('active')) {
+            path.style.fill = iconActiveColorVar.trim() === rainbowColor.trim() ? rainbowColor : activeColor;
+        } else {
+            path.style.fill = iconDefaultColorVar.trim() === rainbowColor.trim() ? rainbowColor : defaultColor;
+        }
+    });
+}
+
+
 
         setInterval(() => {
             changeIconColor('--link-color', '--primary-color', '--rainbow-color');
