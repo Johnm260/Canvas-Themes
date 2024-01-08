@@ -9,6 +9,7 @@ Feel free to change it and reupload it, just make sure to give credit :)
 
 latest update:
 
+- added more style selectors
 - added side bar icon color support
 - added dashboard icon support
 - made icons work with rbg
