@@ -96,7 +96,13 @@
         .css-f32ptg-toggleDetails__summaryText,
         .ic-DashboardCard__header_content,
         div.ic-DashboardCard,
-        .css-1xnn9jb-inlineSVG-svgIcon{
+        .css-1xnn9jb-inlineSVG-svgIcon,
+        .css-nv02f2-view-tab,
+        .css-1r7u5by-view-tab,
+        .tox-menubar,
+        .tox-mbtn__select-label,
+        .tox,
+        .tox-mbtn--select{
         background-color: var(--primary-color) !important;
         color: var(--link-color) !important
         }
@@ -150,7 +156,8 @@
         .css-1j2lgg9-text,
         .css-1nz9urh,
         .css-btw693-closeButton,
-        .transition--fade-entered.css-1osm78b-view-alert{
+        .transition--fade-entered.css-1osm78b-view-alert,
+        .header{
         background-color: var(--secondary-color) !important;
         color: var(--text-color) !important
         }
@@ -192,14 +199,16 @@
         .menu-item__text,
         .menu-item__badge,
         .css-qpm3ep-view--block-badge,
-        .css-x3bprn-view--inlineBlock-badge{
+        .css-x3bprn-view--inlineBlock-badge,
+        .css-ty8pzd-view--inlineBlock-baseButton{
         background-color: var(--link-color) !important;
         color: var(--primary-color)!important;
         }
 
         .name,
         .external,
-        .ic-app-header__menu-list-item--active{
+        .ic-app-header__menu-list-item--active,
+        .Opportunity-styles__root{
         background-color: var(--secondary-color) !important;
         color: var(--link-color) !important;
         }
